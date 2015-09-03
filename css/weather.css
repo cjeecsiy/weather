@@ -1,0 +1,77 @@
+@import url(http://fonts.googleapis.com/css?family=Medula+One);
+
+body {
+  padding-top: 2%;  
+  /** background: #003322 url("/weather/images/bg.jpg"); */
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 1em;
+  color: white;
+  font-family: "Medula One", cursive;
+  color: #bbcccc;
+  text-shadow: -1px -1px 0 #002222;
+  font-size: 3em;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none transparent;
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  box-sizing: content-box;
+}
+
+div {
+  margin-bottom: 1em;
+}
+
+.custom {
+  overflow: hidden;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  position: relative;
+  border-radius: 0.2em;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 0 #AAA;
+  background-color: white;
+}
+.custom > select {
+  width: 130%;
+  padding: 0.6em 5.4em 0.6em 0.6em;
+  font-size: 1rem;
+}
+.custom:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1.8em;
+  display: block;
+  content: "";
+  /* select mark */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGFBMVEUAAAAZJCYWISIYIyQYIiUWIiIYIyQYIiXh0rToAAAACHRSTlMA/hTRqiinvwFkb0sAAABCSURBVHjajchBDsAgDAPBOJDw/x+XVN0icQGfPGs3i+2GEqeiLCXWLENzvdzrDfP2ls/NjfKbgimYglfBq2Dm+LwHguMA235EdKYAAAAASUVORK5CYII=") center no-repeat;
+  pointer-events: none;
+}
+.default .custom > select {
+  width: auto;
+}
+.overflow .custom {
+  overflow: visible;
+}
+.overflow .custom select {
+  outline: 2px dotted rgba(255, 255, 0, 0.5);
+}
+
+
