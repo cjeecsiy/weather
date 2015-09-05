@@ -2,23 +2,24 @@
     $req_location = $_GET['area'];
     if ($req_location === NULL){ $req_location = "Tokyo"; }
     $locations=array(
-            "Sapporo-shi"    =>    "札幌",
-            "Morioka-shi"    =>    "盛岡",
+            "Sapporo-shi"      =>    "札幌",
+            "Morioka-shi"      =>    "盛岡",
             "Tokyo"            =>    "東京",
             "Osaka"            =>    "大阪",
-            "Toyama-shi"    =>    "富山",
-            "Kanazawa"        =>    "金沢",
-            "Naha-shi"        =>    "那覇"
+            "Toyama-shi"       =>    "富山",
+            "Kanazawa"         =>    "金沢",
+            "Naha-shi"         =>    "那覇"
                     );
     $weathers=array( "Rain"=>"雨", "Mist"=>"小雨", "Clouds"=>"曇り", "Clear"=>"晴れ" );
     $json = json_decode(file_get_contents('http://api.openweathermap.org/data/2.5/weather?q=' . $req_location . ',jp'));
     if ($json===NULL){
         return;
     }
-    $location_name = $locations[$json->{'name'}];
-    $weather = $weathers[$json->{'weather'}[0]->{'main'}];
-    $image_path = "http://openweathermap.org/img/w/" . $json->{'weather'}[0]->{'icon'} . ".png";
-    $temp = round($json->{'main'}->{'temp'} -273.15, 1);
+
+    $image_path = "http://openweathermap.org/img/w/{$json->weather[0]->icon}.png";
+    $location_name = $locations[$json->name];
+    $weather = $weathers[$json->weather[0]->main];
+    $temp = round($json->main->temp -273.15, 1);
 ?>
 <html>
 <head>
