@@ -1,5 +1,5 @@
 <?php
-
+    require_once '../env.php';
     require_once '../smarty/libs/Smarty.class.php';
 
     $smarty = new Smarty();
@@ -19,7 +19,8 @@
             "Naha-shi"         =>    "那覇"
                     );
     $weathers=array( "Rain"=>"雨", "Mist"=>"小雨", "Clouds"=>"曇り", "Clear"=>"晴れ" );
-    $json = json_decode(file_get_contents('http://api.openweathermap.org/data/2.5/weather?q=' . $req_location . ',jp'));
+    $file = file_get_contents('http://api.openweathermap.org/data/2.5/weather?q=' . $req_location . ',jp&APPID=' . OPEN_WEATHER_APPID );
+    $json = json_decode($file);
     if ($json===NULL) return;
         
     $image_path = "http://openweathermap.org/img/w/{$json->weather[0]->icon}.png";
